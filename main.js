@@ -204,7 +204,7 @@ const deguCentro = document.getElementById('deguCentro');
 const deguDir    = document.getElementById('deguDir');
 
 if (deguEsq && deguCentro && deguDir) {
-  const totalDegu = 28;
+  const totalDegu = 9;
   let idx = 3;
 
   function aplicarPosicao(el, posicao) {
@@ -233,7 +233,7 @@ if (deguEsq && deguCentro && deguDir) {
   deguNova.className    = 'degu-foto';
   deguNova.style.transition = 'none';
   deguNova.style.position   = 'absolute';
-  deguNova.innerHTML    = `<img src="./arquivos/cafe${idx + 1}.jpg" alt="">`;
+  deguNova.innerHTML    = `<img src="./arquivos/cafe${idx + 1}.webp" alt="">`;
   deguDir.parentElement.appendChild(deguNova);
   aplicarPosicao(deguNova, 'fora');
 
@@ -254,7 +254,7 @@ if (deguEsq && deguCentro && deguDir) {
       f0.style.transition = 'none';
       aplicarPosicao(f0, 'fora');
       idx = (idx + 1) % totalDegu;
-      f0.querySelector('img').src = `./arquivos/cafe${idx + 1}.jpg`;
+      f0.querySelector('img').src = `./arquivos/cafe${idx + 1}.webp`;
       fila.push(fila.shift());
     }, 750);
   }
@@ -370,13 +370,24 @@ function criarFios() {
 }
 criarFios();
 
+let animFrame;
+let canvasVisivel = false;
+
+const observerCanvas = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    canvasVisivel = e.isIntersecting;
+    if (canvasVisivel) animar();
+  });
+});
+observerCanvas.observe(canvas);
+
 function animar() {
+  if (!canvasVisivel) return;
   ctx.clearRect(0, 0, W, H);
   t += 0.012;
   fios.forEach(f => f.draw(t));
-  requestAnimationFrame(animar);
+  animFrame = requestAnimationFrame(animar);
 }
-animar();
 
 
 /* ============================================
