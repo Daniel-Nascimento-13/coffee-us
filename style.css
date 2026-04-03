@@ -14,8 +14,16 @@
 /* ============================================
    RESET E BASE
    ============================================ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* { margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth;  
+  color-scheme: only light; 
+}
+
 body {
   font-family: 'Space Mono', monospace;
   background: var(--dark);
@@ -1224,8 +1232,7 @@ nav {
   margin-top: -40px; 
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
 .parceiros-track { 
@@ -1234,7 +1241,7 @@ nav {
   gap: 80px; 
   width: max-content; 
   animation: carrosselSlide 35s linear infinite;
-  animation-play-state: paused;
+  animation-play-state: running;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;

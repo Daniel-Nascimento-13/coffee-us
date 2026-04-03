@@ -263,18 +263,6 @@ if (deguEsq && deguCentro && deguDir) {
 
 
 /* ============================================
-   PARCEIROS
-   ============================================ */
-  window.addEventListener('load', () => {
-  const track = document.getElementById('parceirosTrack');
-  if (track) track.style.animationPlayState = 'running';
-  
-  const carrossel = document.querySelector('.parceiros-carrossel');
-  if (carrossel) carrossel.style.opacity = '1';
-});
-
-
-/* ============================================
    MODAL — WHATSAPP
    ============================================ */
 function abrirModal() {
@@ -376,13 +364,16 @@ let canvasVisivel = false;
 const observerCanvas = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     canvasVisivel = e.isIntersecting;
-    if (canvasVisivel) animar();
+    if (canvasVisivel && !animFrame) animar();
   });
 });
 observerCanvas.observe(canvas);
 
 function animar() {
-  if (!canvasVisivel) return;
+  if (!canvasVisivel) {
+    animFrame = null;
+    return;
+  }
   ctx.clearRect(0, 0, W, H);
   t += 0.012;
   fios.forEach(f => f.draw(t));
