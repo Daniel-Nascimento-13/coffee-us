@@ -63,9 +63,6 @@ function medirPosicaoInicial() {
 /* ============================================
    ANIMAÇÃO DE SCROLL DO HERO
    ============================================ */
-/* ============================================
-   ANIMAÇÃO DE SCROLL DO HERO
-   ============================================ */
 let animacaoHeroConcluida = false;
 
 function aoScrollar() {
@@ -374,10 +371,12 @@ let canvasVisivel = false;
 const observerCanvas = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     canvasVisivel = e.isIntersecting;
-    if (canvasVisivel && !animFrame) {
+    if (canvasVisivel) {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      animFrame = null;
       animar();
-    } else if (!canvasVisivel && animFrame) {
-      cancelAnimationFrame(animFrame);
+    } else {
+      if (animFrame) cancelAnimationFrame(animFrame);
       animFrame = null;
     }
   });
