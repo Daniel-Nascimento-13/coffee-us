@@ -63,11 +63,19 @@ function medirPosicaoInicial() {
 /* ============================================
    ANIMAÇÃO DE SCROLL DO HERO
    ============================================ */
+/* ============================================
+   ANIMAÇÃO DE SCROLL DO HERO
+   ============================================ */
+let animacaoHeroConcluida = false;
+
 function aoScrollar() {
   const lv        = window.innerWidth;
-  const ah        = alturaViewportFixa; // USA ALTURA FIXA, NÃO DINÂMICA
+  const ah        = alturaViewportFixa;
   const maxScroll = heroSection.offsetHeight - ah;
   const progresso = clamp(window.scrollY / maxScroll, 0, 1);
+
+  if (progresso === 0) animacaoHeroConcluida = false;
+  if (animacaoHeroConcluida) return;
 
   const fase1 = easeInOut(clamp(progresso / 0.7, 0, 1));
   const fase2 = easeOut(clamp((progresso - 0.6) / 0.4, 0, 1));
@@ -83,8 +91,8 @@ function aoScrollar() {
   const r   = lerp(12, 0,                  fase1);
   const rot = lerp(-6, 0,                  fase1);
 
- const topoFinal = ah - h;
- const topo      = lerp(inicio.top, topoFinal, fase2);
+  const topoFinal = ah - h;
+  const topo      = lerp(inicio.top, topoFinal, fase2);
 
   videoWrap.style.width        = w + 'px';
   videoWrap.style.height       = h + 'px';
@@ -100,6 +108,8 @@ function aoScrollar() {
   if (scrollHint) {
     scrollHint.style.opacity = clamp(1 - progresso * 6, 0, 1);
   }
+
+  if (progresso >= 1) animacaoHeroConcluida = true;
 }
 
 
@@ -358,22 +368,24 @@ function criarFios() {
 }
 criarFios();
 
-let animFrame;
+let animFrame = null;
 let canvasVisivel = false;
 
 const observerCanvas = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     canvasVisivel = e.isIntersecting;
-    if (canvasVisivel && !animFrame) animar();
+    if (canvasVisivel && !animFrame) {
+      animar();
+    } else if (!canvasVisivel && animFrame) {
+      cancelAnimationFrame(animFrame);
+      animFrame = null;
+    }
   });
 });
 observerCanvas.observe(canvas);
 
 function animar() {
-  if (!canvasVisivel) {
-    animFrame = null;
-    return;
-  }
+  if (!canvasVisivel) { animFrame = null; return; }
   ctx.clearRect(0, 0, W, H);
   t += 0.012;
   fios.forEach(f => f.draw(t));
