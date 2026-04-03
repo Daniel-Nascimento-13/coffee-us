@@ -1234,6 +1234,7 @@ nav {
   -webkit-transform: translateZ(0);
   opacity: 1;
   overflow: hidden;
+  contain: layout style; 
 }
 
 .parceiros-track { 
@@ -1246,6 +1247,7 @@ nav {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform-style: flat;
 }
 
 .parceiros-track:hover { 
