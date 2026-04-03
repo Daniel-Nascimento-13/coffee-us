@@ -1133,7 +1133,7 @@ nav {
 #parceiros { 
   background: var(--dark); 
   padding: 100px 0 0; 
-  overflow: visible; 
+  overflow: hidden; 
   position: relative; 
 }
 
@@ -1229,10 +1229,11 @@ nav {
   position: relative; 
   border-top: 3px solid rgba(230,204,177,0.15); 
   border-bottom: 3px solid rgba(230,204,177,0.15); 
-  margin-top: -40px; 
+  margin-top: 0px; 
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   opacity: 1;
+  overflow: hidden;
 }
 
 .parceiros-track { 
