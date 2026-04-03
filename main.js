@@ -319,7 +319,7 @@ function resizeCanvas() {
   H = canvas.height = canvas.offsetHeight;
 }
 resizeCanvas();
-window.addEventListener('resize', () => { resizeCanvas(); criarFios(); });
+window.addEventListener('resize', () => { resizeCanvas(); });
 
 class Fio {
   constructor(offsetX, delay) { this.offsetX = offsetX; this.delay = delay; this.reset(); }
