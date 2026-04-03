@@ -1789,10 +1789,10 @@ nav {
     height: 100dvh;
   }
   .t-coffee {
-    font-size: clamp(5rem, 22vw, 10rem);
+    font-size: clamp(7rem, 26vw, 12rem);
   }
   .t-us {
-  font-size: clamp(4rem, 20vw, 9rem);
+  font-size: clamp(6rem, 24vw, 11rem);
   -webkit-text-stroke: 2px var(--cream);
   top: 46%;
 }

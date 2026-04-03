@@ -365,31 +365,13 @@ function criarFios() {
 }
 criarFios();
 
-let animFrame = null;
-let canvasVisivel = false;
-
-const observerCanvas = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    canvasVisivel = e.isIntersecting;
-    if (canvasVisivel) {
-      if (animFrame) cancelAnimationFrame(animFrame);
-      animFrame = null;
-      animar();
-    } else {
-      if (animFrame) cancelAnimationFrame(animFrame);
-      animFrame = null;
-    }
-  });
-});
-observerCanvas.observe(canvas);
-
 function animar() {
-  if (!canvasVisivel) { animFrame = null; return; }
   ctx.clearRect(0, 0, W, H);
   t += 0.012;
   fios.forEach(f => f.draw(t));
-  animFrame = requestAnimationFrame(animar);
+  requestAnimationFrame(animar);
 }
+animar();
 
 
 /* ============================================
