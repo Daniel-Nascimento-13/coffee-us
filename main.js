@@ -157,50 +157,102 @@ if (timelineSection) observerTimeline.observe(timelineSection);
 
 
 /* ============================================
-   GALERIA — SCROLL DRIVEN
+   GALERIA — NAVEGAÇÃO POR SETAS
    ============================================ */
-const galeriaSection = document.getElementById('galeria');
-const galeriaCards   = document.querySelectorAll('.card-polaroid');
-const totalCards     = galeriaCards.length;
-const rotacoes       = [-6, 4, -3, 7, -5, 3];
+const galeriaCards = document.querySelectorAll('.card-polaroid');
+const totalCards   = galeriaCards.length;
+const rotacoes     = [-6, 4, -3, 7, -5, 3];
+let cardAtual      = 0;
+let animando       = false;
 
+// APLICA ROTAÇÕES E ESCONDE TODOS PRIMEIRO
 galeriaCards.forEach((card, i) => {
   card.style.setProperty('--rot', rotacoes[i] + 'deg');
-  card.style.left      = '50%';
-  card.style.top       = '50%';
-  card.style.transform = `translate(-50%, -50%) translateX(120vw) rotate(${rotacoes[i]}deg)`;
-  card.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease';
-  card.style.opacity   = '0';
+  card.style.transition = 'none';
+  card.style.opacity    = '0';
+  card.style.transform  = `rotate(${rotacoes[i]}deg) translateX(60px)`;
 });
 
-function animarGaleria() {
-  if (!galeriaSection) return;
-  const rect      = galeriaSection.getBoundingClientRect();
-  const altTotal  = galeriaSection.offsetHeight - window.innerHeight;
-  const progresso = clamp(-rect.top / altTotal, 0, 1);
+// CRIA OS DOTS
+const dotsWrap = document.getElementById('galeriaDots');
+galeriaCards.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'galeria-dot' + (i === 0 ? ' ativo' : '');
+  dot.setAttribute('aria-label', `Card ${i + 1}`);
+  dot.addEventListener('click', () => irParaCard(i));
+  dotsWrap.appendChild(dot);
+});
 
-  galeriaCards.forEach((card, i) => {
-    const entrada = i / totalCards;
-    const saida   = (i + 1) / totalCards;
-    const local   = clamp((progresso - entrada) / (1 / totalCards), 0, 1);
-
-    if (progresso < entrada) {
-      card.style.opacity   = '0';
-      card.style.transform = `translate(-50%, -50%) translateX(120vw) rotate(${rotacoes[i]}deg)`;
-    } else if (progresso >= entrada && progresso < saida) {
-      const tx = lerp(60, 0, easeOut(local));
-      card.style.opacity   = '1';
-      card.style.transform = `translate(-50%, -50%) translateX(${tx}vw) rotate(${rotacoes[i]}deg)`;
-    } else {
-      const fasePos = clamp((progresso - saida) / (1 / totalCards), 0, 1);
-      const tx      = lerp(0, -70, easeOut(fasePos));
-      card.style.opacity   = lerp(1, 0, fasePos).toString();
-      card.style.transform = `translate(-50%, -50%) translateX(${tx}vw) rotate(${rotacoes[i]}deg)`;
-    }
+function atualizarDots() {
+  document.querySelectorAll('.galeria-dot').forEach((dot, i) => {
+    dot.classList.toggle('ativo', i === cardAtual);
   });
 }
-window.addEventListener('scroll', animarGaleria, { passive: true });
-animarGaleria();
+
+function irParaCard(novoIdx, direcao) {
+  if (animando || novoIdx === cardAtual) return;
+  animando = true;
+
+  const dir          = direcao ?? (novoIdx > cardAtual ? 'dir' : 'esq');
+  const cardSaindo   = galeriaCards[cardAtual];
+  const cardEntrando = galeriaCards[novoIdx];
+
+  cardEntrando.style.transition = 'none';
+  cardEntrando.style.opacity    = '0';
+  cardEntrando.style.transform  = `rotate(${rotacoes[novoIdx]}deg) translateX(${dir === 'dir' ? '80px' : '-80px'})`;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      cardEntrando.style.transition = '';
+      cardEntrando.style.opacity    = '1';
+      cardEntrando.style.transform  = `rotate(${rotacoes[novoIdx]}deg) translateX(0)`;
+      cardEntrando.style.pointerEvents = 'auto';
+
+      cardSaindo.style.transition  = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      cardSaindo.style.opacity     = '0';
+      cardSaindo.style.transform   = `rotate(${rotacoes[cardAtual]}deg) translateX(${dir === 'dir' ? '-80px' : '80px'})`;
+      cardSaindo.style.pointerEvents = 'none';
+
+      cardAtual = novoIdx;
+      atualizarDots();
+
+      setTimeout(() => { animando = false; }, 520);
+    });
+  });
+}
+
+// ATIVA O PRIMEIRO CARD APÓS LAYOUT ESTABILIZAR
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    const primeiro = galeriaCards[0];
+    primeiro.style.transition   = 'opacity 0.5s ease, transform 0.5s ease';
+    primeiro.style.opacity      = '1';
+    primeiro.style.transform    = `rotate(${rotacoes[0]}deg) translateX(0)`;
+    primeiro.style.pointerEvents = 'auto';
+  });
+});
+
+// BOTÕES SETA
+document.getElementById('galeriaAnterior').addEventListener('click', () => {
+  irParaCard((cardAtual - 1 + totalCards) % totalCards, 'esq');
+});
+document.getElementById('galeriaProximo').addEventListener('click', () => {
+  irParaCard((cardAtual + 1) % totalCards, 'dir');
+});
+
+// SWIPE TOUCH (MOBILE)
+let touchStartX = 0;
+const galeriaEl = document.getElementById('galeriaCards');
+galeriaEl.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+galeriaEl.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) irParaCard((cardAtual + 1) % totalCards, 'dir');
+    else          irParaCard((cardAtual - 1 + totalCards) % totalCards, 'esq');
+  }
+}, { passive: true });
 
 
 /* ============================================

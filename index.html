@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="only light">
   <title>COFFEE US</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -261,34 +261,52 @@
       <p class="galeria-tag">No seu evento</p>
       <h2 class="galeria-titulo">O CARRINHO<br><span class="gl-outline">EM AÇÃO</span></h2>
     </div>
-    <div class="galeria-cards" id="galeriaCards">
-      <div class="card-polaroid" data-rot="-6">
-        <div class="card-foto"><img src="./arquivos/carrinho1.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
-        <div class="card-legenda">Café especial no seu evento</div>
+
+    <div class="galeria-nav-wrap">
+      <button class="galeria-seta galeria-seta-esq" id="galeriaAnterior" aria-label="Anterior">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="galeria-cards" id="galeriaCards">
+        <div class="card-polaroid" data-rot="-6">
+          <div class="card-foto"><img src="./arquivos/carrinho1.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
+          <div class="card-legenda">Café especial no seu evento</div>
+        </div>
+        <div class="card-polaroid" data-rot="4">
+          <div class="card-foto"><img src="./arquivos/carrinho2.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
+          <div class="card-legenda">Experiência sob medida</div>
+        </div>
+        <div class="card-polaroid" data-rot="-3">
+          <div class="card-foto"><img src="./arquivos/carrinho3.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
+          <div class="card-legenda">Identidade visual integrada</div>
+        </div>
+        <div class="card-polaroid" data-rot="7">
+          <div class="card-foto"><img src="./arquivos/carrinho4.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
+          <div class="card-legenda">Conexão em cada xícara</div>
+        </div>
+        <div class="card-polaroid" data-rot="-5">
+          <div class="card-foto"><img src="./arquivos/carrinho5.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
+          <div class="card-legenda">Detalhes que encantam</div>
+        </div>
+        <div class="card-polaroid" data-rot="3">
+          <div class="card-foto"><img src="./arquivos/carrinho6.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
+          <div class="card-legenda">Momentos que ficam</div>
+        </div>
       </div>
-      <div class="card-polaroid" data-rot="4">
-        <div class="card-foto"><img src="./arquivos/carrinho2.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
-        <div class="card-legenda">Experiência sob medida</div>
-      </div>
-      <div class="card-polaroid" data-rot="-3">
-        <div class="card-foto"><img src="./arquivos/carrinho3.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
-        <div class="card-legenda">Identidade visual integrada</div>
-      </div>
-      <div class="card-polaroid" data-rot="7">
-        <div class="card-foto"><img src="./arquivos/carrinho4.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
-        <div class="card-legenda">Conexão em cada xícara</div>
-      </div>
-      <div class="card-polaroid" data-rot="-5">
-        <div class="card-foto"><img src="./arquivos/carrinho5.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
-        <div class="card-legenda">Detalhes que encantam</div>
-      </div>
-      <div class="card-polaroid" data-rot="3">
-        <div class="card-foto"><img src="./arquivos/carrinho6.webp" alt="Carrinho Coffee Us" loading="lazy"></div>
-        <div class="card-legenda">Momentos que ficam</div>
-      </div>
+
+      <button class="galeria-seta galeria-seta-dir" id="galeriaProximo" aria-label="Próximo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
     </div>
+
+    <div class="galeria-dots" id="galeriaDots"></div>
   </div>
 </section>
+
 
 <!-- ============================================================
      DEGUSTAÇÃO
@@ -387,7 +405,28 @@
 
   </div>
 
-  <!-- CARROSSEL -->
+  
+
+<!-- ============================================================
+     FRASE IMPACTO
+     ============================================================ -->
+<section id="frase-impacto">
+  <div class="frase-baixo">
+    <div class="frase-foto">
+      <img src="./arquivos/marina-café.webp" alt="Marina" loading="lazy">
+      <span class="frase-coffee-over">COFFEE</span>
+      <span class="frase-us-over">US</span>
+    </div>
+    <div class="frase-dir">
+      <span class="frase-linha">A ENERGIA</span>
+      <span class="frase-linha frase-outline">QUE IMPULSIONA</span>
+      <span class="frase-linha">E O CONFORTO</span>
+      <span class="frase-linha frase-outline">QUE CONECTA.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CARROSSEL -->
   <div class="parceiros-carrossel">
     <div class="parceiros-track" id="parceirosTrack">
       <div class="parceiro-logo"><img src="./arquivos/logo-c2b.png" alt="C2B"></div>
@@ -422,26 +461,6 @@
     </div>
   </div>
 
-</section>
-
-
-<!-- ============================================================
-     FRASE IMPACTO
-     ============================================================ -->
-<section id="frase-impacto">
-  <div class="frase-baixo">
-    <div class="frase-foto">
-      <img src="./arquivos/marina-café.webp" alt="Marina" loading="lazy">
-      <span class="frase-coffee-over">COFFEE</span>
-      <span class="frase-us-over">US</span>
-    </div>
-    <div class="frase-dir">
-      <span class="frase-linha">A ENERGIA</span>
-      <span class="frase-linha frase-outline">QUE IMPULSIONA</span>
-      <span class="frase-linha">E O CONFORTO</span>
-      <span class="frase-linha frase-outline">QUE CONECTA.</span>
-    </div>
-  </div>
 </section>
 
 
