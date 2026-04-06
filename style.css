@@ -1289,6 +1289,8 @@ font-family: 'Montserrat', sans-serif;
   background: #fff; 
   padding: 10px 0; 
   position: relative; 
+  z-index: 1;
+  isolation: isolate;
   border-top: 3px solid rgba(230,204,177,0.15); 
   border-bottom: 3px solid rgba(230,204,177,0.15); 
   margin-top: 0px; 
@@ -1296,7 +1298,6 @@ font-family: 'Montserrat', sans-serif;
   -webkit-transform: translateZ(0);
   opacity: 1;
   overflow: hidden;
-  contain: layout style; 
 }
 
 .parceiros-track { 
@@ -1312,8 +1313,10 @@ font-family: 'Montserrat', sans-serif;
   transform-style: flat;
 }
 
-.parceiros-track:hover { 
-  animation-play-state: paused; 
+@media (hover: hover) and (pointer: fine) {
+  .parceiros-track:hover {
+    animation-play-state: paused;
+  }
 }
 
 .parceiro-logo { 

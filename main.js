@@ -448,3 +448,16 @@ const observerAssinatura = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 if (elTexto) observerAssinatura.observe(elTexto);
+
+
+/* ============================================
+   CARROSSEL — FORÇA REPAINT NA PRIMEIRA CARGA
+   ============================================ */
+window.addEventListener('load', () => {
+  const track = document.getElementById('parceirosTrack');
+  if (track) {
+    track.style.animation = 'none';
+    track.offsetHeight;
+    track.style.animation = '';
+  }
+});
