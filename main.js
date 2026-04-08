@@ -322,6 +322,116 @@ if (deguEsq && deguCentro && deguDir) {
 
 
 /* ============================================
+   FEEDBACKS — NAVEGAÇÃO POR SETAS
+   ============================================ */
+const feedbackCards  = document.querySelectorAll('.feedback-card');
+const totalFeedbacks = feedbackCards.length;
+let feedbackAtual    = 0;
+let feedbackAnimando = false;
+
+const feedbackRotacoes = [-4, 3, -2, 5, -3];
+
+feedbackCards.forEach((card, i) => {
+  card.style.transition = 'none';
+  card.style.opacity    = '0';
+  card.style.transform  = `rotate(${feedbackRotacoes[i]}deg) translateX(60px)`;
+});
+
+const feedbackDotsWrap = document.getElementById('feedbacksDots');
+feedbackCards.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'feedbacks-dot' + (i === 0 ? ' ativo' : '');
+  dot.setAttribute('aria-label', `Feedback ${i + 1}`);
+  dot.addEventListener('click', () => irParaFeedback(i));
+  feedbackDotsWrap.appendChild(dot);
+});
+
+function atualizarFeedbackDots() {
+  document.querySelectorAll('.feedbacks-dot').forEach((dot, i) => {
+    dot.classList.toggle('ativo', i === feedbackAtual);
+  });
+}
+
+function irParaFeedback(novoIdx, direcao) {
+  if (feedbackAnimando || novoIdx === feedbackAtual) return;
+  feedbackAnimando = true;
+
+  const dir            = direcao ?? (novoIdx > feedbackAtual ? 'dir' : 'esq');
+  const cardSaindo     = feedbackCards[feedbackAtual];
+  const cardEntrando   = feedbackCards[novoIdx];
+  const rotEntrada     = feedbackRotacoes[novoIdx];
+  const rotSaida       = feedbackRotacoes[feedbackAtual];
+
+  cardEntrando.style.transition = 'none';
+  cardEntrando.style.opacity    = '0';
+  cardEntrando.style.transform  = `rotate(${rotEntrada}deg) translateX(${dir === 'dir' ? '80px' : '-80px'})`;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      cardEntrando.style.transition    = '';
+      cardEntrando.style.opacity       = '1';
+      cardEntrando.style.transform     = `rotate(${rotEntrada}deg) translateX(0)`;
+      cardEntrando.style.pointerEvents = 'auto';
+
+      cardSaindo.style.transition  = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      cardSaindo.style.opacity     = '0';
+      cardSaindo.style.transform   = `rotate(${rotSaida}deg) translateX(${dir === 'dir' ? '-80px' : '80px'})`;
+      cardSaindo.style.pointerEvents = 'none';
+
+      feedbackAtual = novoIdx;
+      atualizarFeedbackDots();
+
+      setTimeout(() => { feedbackAnimando = false; }, 520);
+    });
+  });
+}
+
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    const primeiro = feedbackCards[0];
+    primeiro.style.transition    = 'opacity 0.5s ease, transform 0.5s ease';
+    primeiro.style.opacity       = '1';
+    primeiro.style.transform     = `rotate(${feedbackRotacoes[0]}deg) translateX(0)`;
+    primeiro.style.pointerEvents = 'auto';
+  });
+});
+
+document.getElementById('feedbackAnterior').addEventListener('click', () => {
+  irParaFeedback((feedbackAtual - 1 + totalFeedbacks) % totalFeedbacks, 'esq');
+});
+document.getElementById('feedbackProximo').addEventListener('click', () => {
+  irParaFeedback((feedbackAtual + 1) % totalFeedbacks, 'dir');
+});
+
+let fbTouchStartX = 0;
+const fbCardsEl = document.getElementById('feedbacksCards');
+fbCardsEl.addEventListener('touchstart', e => {
+  fbTouchStartX = e.touches[0].clientX;
+}, { passive: true });
+fbCardsEl.addEventListener('touchend', e => {
+  const diff = fbTouchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) irParaFeedback((feedbackAtual + 1) % totalFeedbacks, 'dir');
+    else          irParaFeedback((feedbackAtual - 1 + totalFeedbacks) % totalFeedbacks, 'esq');
+  }
+}, { passive: true });
+
+
+/* ============================================
+   CASES — TOGGLE EXPANSÃO
+   ============================================ */
+function toggleCases() {
+  const faixa  = document.getElementById('casesFaixa');
+  const painel = document.getElementById('casesPainel');
+  const ver    = document.getElementById('cfVer');
+
+  const aberto = painel.classList.toggle('aberto');
+  faixa.classList.toggle('aberto', aberto);
+  ver.textContent = aberto ? 'Fechar' : 'Ver';
+}
+
+
+/* ============================================
    MODAL — WHATSAPP
    ============================================ */
 function abrirModal() {

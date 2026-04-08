@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light">
+  <title>Cases — COFFEE US</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="cases.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">
+    <img src="./arquivos/logocoffeeus-bege.png" alt="Coffee Us" class="nav-logo-img">
+  </a>
+  <a href="index.html" class="nav-voltar">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"/>
+      <polyline points="12 19 5 12 12 5"/>
+    </svg>
+    <span>Voltar ao site</span>
+  </a>
+</nav>
+
+
+<header id="topo">
+  <div class="header-bg">CASES</div>
+  <div class="header-inner">
+    <p class="header-tag">Portfólio de experiências</p>
+    <h1 class="header-titulo">EXPERIÊNCIAS REAIS,<br><span class="outline">RESULTADOS</span> REAIS</h1>
+    <p class="header-desc">Cada evento que realizamos é uma história única. Estratégia, identidade visual e execução documentados — veja de perto como transformamos momentos em memórias.</p>
+  </div>
+</header>
+
+<!-- LINHA SEPARADORA — SUBSTITUI O MENU INTERNO -->
+<div class="cases-separador"></div>
+
+<main>
+
+
+  <!-- ══════════════════════════════════════
+       CASE 01
+       ══════════════════════════════════════ -->
+  <section class="case" id="case1">
+
+    <div class="case-topo">
+      <div>
+        <p class="case-cat">Social</p>
+        <h2 class="case-titulo">Casamento<br>Cliente e Cliente</h2>
+        <p class="case-resumo">Uma cerimônia para XX convidados, com identidade visual integrada à decoração floral e operação pensada para dois momentos estratégicos do evento.</p>
+      </div>
+      <div class="case-metricas">
+        <div class="metrica"><div class="metrica-val">XX</div><div class="metrica-lbl">Convidados</div></div>
+        <div class="metrica-sep"></div>
+        <div class="metrica"><div class="metrica-val">XX</div><div class="metrica-lbl">Xícaras servidas</div></div>
+        <div class="metrica-sep"></div>
+        <div class="metrica"><div class="metrica-val">Xh</div><div class="metrica-lbl">De operação</div></div>
+      </div>
+    </div>
+
+    <!-- TOGGLE -->
+    <div class="case-toggle" onclick="toggleCase(this)">
+      <span class="ct-label">Ver case completo</span>
+      <div class="ct-dir">
+        <div class="ct-seta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+          </svg>
+        </div>
+        <span class="ct-ver">Ver</span>
+      </div>
+    </div>
+
+    <!-- PAINEL -->
+    <div class="case-painel">
+      <div class="case-painel-inner">
+
+        <div class="case-video-wrap">
+          <!-- SUBSTITUIR: <iframe src="https://www.youtube.com/embed/SEU_ID" allowfullscreen></iframe> -->
+          <div class="video-placeholder">
+            <div class="play-circulo"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span class="video-lbl">Vídeo do evento em breve</span>
+          </div>
+        </div>
+
+        <p class="case-section-titulo">Galeria</p>
+        <div class="galeria-grid">
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 01</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 02</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 03</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 04</span></div></div>
+        </div>
+
+        <div class="case-body">
+          <div>
+            <p class="case-section-titulo">Contexto</p>
+            <div class="case-texto">
+              <p>O casamento de X e X aconteceu em XX, em um espaço ao ar livre em XX. A cerimônia tinha proposta minimalista e floral, e precisávamos integrar a cafeteria de forma invisível ao ambiente.</p>
+              <p>Desenvolvemos uma <strong>identidade visual exclusiva para o evento</strong>, com copos personalizados com as iniciais do casal.</p>
+            </div>
+          </div>
+          <div>
+            <p class="case-section-titulo">Estratégia</p>
+            <div class="case-texto">
+              <p>A operação foi planejada em dois momentos estratégicos: após a cerimônia, para aquecimento dos convidados, e durante a festa, como espaço de descompressão para os adultos.</p>
+              <p>Evitamos filas com um sistema de <strong>XX</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-destaques">
+          <div class="destaque-card"><span class="destaque-icone">☕</span><div class="destaque-titulo">Menu personalizado</div><div class="destaque-texto">Espresso, cappuccino floral com lavanda e chocolate quente com especiarias.</div></div>
+          <div class="destaque-card"><span class="destaque-icone">🎨</span><div class="destaque-titulo">Identidade visual</div><div class="destaque-texto">Copos, embalagens e bancada no tom champagne do casamento.</div></div>
+          <div class="destaque-card"><span class="destaque-icone">📹</span><div class="destaque-titulo">Cobertura em vídeo</div><div class="destaque-texto">Making-of da operação integrado ao vídeo oficial do casal.</div></div>
+        </div>
+
+        <div class="case-depoimento">
+          <p class="depo-texto">"A Coffee Us não entregou só café — entregou uma experiência que os nossos convidados ainda comentam."</p>
+          <p class="depo-autor">XX, Noiva</p>
+        </div>
+
+        <div class="case-rodape">
+          <button class="btn-topo" onclick="document.getElementById('topo').scrollIntoView({behavior:'smooth'})">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            Voltar ao topo
+          </button>
+          <button class="btn-fechar-case" onclick="fecharCase(this)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+             <line x1="12" y1="19" x2="12" y2="5"/>
+             <polyline points="5 12 12 5 19 12"/>
+            </svg>
+            Fechar case
+          </button>
+          <a href="https://wa.me/5551996106703?text=Ol%C3%A1!%20Vi%20o%20case%20do%20Casamento%20Luana%20%26%20Maicon%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="btn-orcamento">
+            <i class="fa-brands fa-whatsapp"></i>Quero um evento assim
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CASE 02
+       ══════════════════════════════════════ -->
+  <section class="case" id="case2">
+
+    <div class="case-topo">
+      <div>
+        <p class="case-cat">Corporativo</p>
+        <h2 class="case-titulo">Convenção<br>Sicredi RS 2024</h2>
+        <p class="case-resumo">Operação de alto volume para evento corporativo com mais de 1.000 participantes, dois turnos completos e cardápio pensado para velocidade sem abrir mão da qualidade.</p>
+      </div>
+      <div class="case-metricas">
+        <div class="metrica"><div class="metrica-val">1.2K</div><div class="metrica-lbl">Participantes</div></div>
+        <div class="metrica-sep"></div>
+        <div class="metrica"><div class="metrica-val">1.000+</div><div class="metrica-lbl">Xícaras servidas</div></div>
+        <div class="metrica-sep"></div>
+        <div class="metrica"><div class="metrica-val">9h</div><div class="metrica-lbl">De operação em + dias</div></div>
+      </div>
+    </div>
+
+    <div class="case-toggle" onclick="toggleCase(this)">
+      <span class="ct-label">Ver case completo</span>
+      <div class="ct-dir">
+        <div class="ct-seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+        <span class="ct-ver">Ver</span>
+      </div>
+    </div>
+
+    <div class="case-painel">
+      <div class="case-painel-inner">
+
+        <div class="case-video-wrap">
+          <div class="video-placeholder">
+            <div class="play-circulo"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span class="video-lbl">Vídeo do evento em breve</span>
+          </div>
+        </div>
+
+        <p class="case-section-titulo">Galeria</p>
+        <div class="galeria-grid cols-4">
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 01</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 02</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 03</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 04</span></div></div>
+        </div>
+
+        <div class="case-body">
+          <div>
+            <p class="case-section-titulo">Contexto</p>
+            <div class="case-texto">
+              <p>A Convenção Sicredi 2024 reuniu colaboradores de todo o Rio Grande do Sul. O desafio era atender um fluxo intenso e imprevisível ao longo de dois turnos completos, com pausas programadas de café.</p>
+              <p>A operação exigiu <strong>planejamento logístico detalhado</strong>, com pré-produção de bases, mise en place duplo e comunicação constante com a equipe de produção.</p>
+            </div>
+          </div>
+          <div>
+            <p class="case-section-titulo">Estratégia</p>
+            <div class="case-texto">
+              <p>Mapeamos os picos de fluxo junto à produtora e criamos um sistema de <strong>duas estações simultâneas</strong> em pontos opostos do salão, distribuindo o tráfego organicamente.</p>
+              <p>O cardápio foi pensado para velocidade: espressos, long blacks e drip coffee prontos em até 40 segundos por pedido.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-destaques">
+          <div class="destaque-card"><span class="destaque-icone">⚡</span><div class="destaque-titulo">Operação inteligente</div><div class="destaque-texto">Duas estações simultâneas eliminando filas mesmo nos picos de fluxo.</div></div>
+          <div class="destaque-card"><span class="destaque-icone">🏷️</span><div class="destaque-titulo">Branding Sicredi</div><div class="destaque-texto">Copos e guardanapos com a identidade visual da cooperativa.</div></div>
+          <div class="destaque-card"><span class="destaque-icone">📊</span><div class="destaque-titulo">Relatório pós-evento</div><div class="destaque-texto">Dados de consumo por período entregues ao cliente.</div></div>
+        </div>
+
+        <div class="case-depoimento">
+          <p class="depo-texto">"Profissionalismo impecável. Zero filas em nenhum momento do evento. Surpreendentes."</p>
+          <p class="depo-autor">Coordenadora de eventos, Sicredi</p>
+        </div>
+
+        <div class="case-rodape">
+          <button class="btn-topo" onclick="document.getElementById('topo').scrollIntoView({behavior:'smooth'})">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            Voltar ao topo
+          </button>
+          <button class="btn-fechar-case" onclick="fecharCase(this)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+             <line x1="12" y1="19" x2="12" y2="5"/>
+             <polyline points="5 12 12 5 19 12"/>
+            </svg>
+            Fechar case
+          </button>
+          <a href="https://wa.me/5551996106703?text=Ol%C3%A1!%20Vi%20o%20case%20da%20Conven%C3%A7%C3%A3o%20Sicredi%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="btn-orcamento">
+            <i class="fa-brands fa-whatsapp"></i>Quero um evento assim
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CASE 03
+       ══════════════════════════════════════ -->
+  <section class="case" id="case3">
+
+    <div class="case-topo">
+      <div>
+        <p class="case-cat">Ocasiao</p>
+        <h2 class="case-titulo">Empresa<br>Local</h2>
+        <p class="case-resumo">Resumo</p>
+      </div>
+      <div class="case-metricas">
+        <div class="metrica"><div class="metrica-val">XX</div><div class="metrica-lbl">Convidados</div></div>
+        <div class="metrica-sep"></div>
+        <div class="metrica"><div class="metrica-val">XX</div><div class="metrica-lbl">Xícaras servidas</div></div>
+        <div class="metrica-sep"></div>
+        <div class="metrica"><div class="metrica-val">XH</div><div class="metrica-lbl">De operação</div></div>
+      </div>
+    </div>
+
+    <div class="case-toggle" onclick="toggleCase(this)">
+      <span class="ct-label">Ver case completo</span>
+      <div class="ct-dir">
+        <div class="ct-seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+        <span class="ct-ver">Ver</span>
+      </div>
+    </div>
+
+    <div class="case-painel">
+      <div class="case-painel-inner">
+
+        <div class="case-video-wrap">
+          <div class="video-placeholder">
+            <div class="play-circulo"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span class="video-lbl">Vídeo do evento em breve</span>
+          </div>
+        </div>
+
+        <p class="case-section-titulo">Galeria</p>
+        <div class="galeria-grid">
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 01</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 02</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 03</span></div></div>
+          <div class="galeria-item"><div class="img-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ac8f70" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 04</span></div></div>
+        </div>
+
+        <div class="case-body">
+          <div>
+            <p class="case-section-titulo">Contexto</p>
+            <div class="case-texto">
+              <p>Resumo</p>
+              <p>Resumo</p>
+            </div>
+          </div>
+          <div>
+            <p class="case-section-titulo">Estratégia</p>
+            <div class="case-texto">
+              <p>Resumo</p>
+              <p>Resumo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-destaques">
+          <div class="destaque-card"><span class="destaque-icone">✨</span><div class="destaque-titulo">Experiência sensorial</div><div class="destaque-texto">Degustação guiada de três origens conectadas ao conceito da marca.</div></div>
+          <div class="destaque-card"><span class="destaque-icone">📸</span><div class="destaque-titulo">Conteúdo orgânico</div><div class="destaque-texto">Estação projetada como cenário, gerando fotos e stories espontâneos.</div></div>
+          <div class="destaque-card"><span class="destaque-icone">💌</span><div class="destaque-titulo">Cartões de blend</div><div class="destaque-texto">Identidade visual editorial entregue com cada xícara servida.</div></div>
+        </div>
+
+        <div class="case-depoimento">
+          <p class="depo-texto">"Feedback."</p>
+          <p class="depo-autor">Cliente, Empresa ou evento</p>
+        </div>
+
+        <div class="case-rodape">
+          <button class="btn-topo" onclick="document.getElementById('topo').scrollIntoView({behavior:'smooth'})">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            Voltar ao topo
+          </button>
+          <button class="btn-fechar-case" onclick="fecharCase(this)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+             <line x1="12" y1="19" x2="12" y2="5"/>
+             <polyline points="5 12 12 5 19 12"/>
+            </svg>
+            Fechar case
+          </button>
+          <a href="https://wa.me/5551996106703?text=Ol%C3%A1!%20Vi%20o%20case%20da%20Ital%C3%ADnea%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="btn-orcamento">
+            <i class="fa-brands fa-whatsapp"></i>Quero um evento assim
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+<script src="cases.js"></script>
+
+</body>
+</html>
