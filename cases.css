@@ -1,3 +1,4 @@
+
 :root {
   --cream:     #e6ccb1;
   --dark:      #222224;
@@ -75,6 +76,7 @@ header {
   border-bottom: 1px solid rgba(230,204,177,0.08);
   position: relative; 
   overflow: hidden;
+  background: var(--cream);
 }
 
 .header-bg {
@@ -82,7 +84,7 @@ header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(6rem, 20vw, 20rem);
   color: transparent;
-  -webkit-text-stroke: 1px rgba(172,143,112,0.04);
+  -webkit-text-stroke: 1px rgba(34,34,36,0.04);
   white-space: nowrap;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
@@ -121,20 +123,20 @@ header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(3.5rem, 9vw, 8rem);
   line-height: 0.88; 
-  color: var(--cream); 
+  color: var(--dark);
   letter-spacing: -0.01em; 
   margin-bottom: 28px;
 }
 
 .header-titulo .outline { 
     color: transparent; 
-    -webkit-text-stroke: 0.5px var(--cream); 
+    -webkit-text-stroke: 0.5px var(--dark);  
 }
 
 .header-desc { 
     font-size: 0.7rem; 
     line-height: 2.1; 
-    color: rgba(230,204,177,0.5); 
+    color: rgba(34,34,36,0.6); 
     max-width: 560px; 
 }
 
@@ -683,6 +685,8 @@ main {
   text-transform: uppercase;
   color: rgba(230,204,177,0.42);
   transition: border-color 0.22s, background 0.22s, color 0.22s;
+  cursor: pointer;
+  background: none;
 }
 
 .btn-orcamento:hover { 
@@ -792,7 +796,6 @@ footer {
     display: none; 
   }
 
-  /* ALTERAÇÃO MOBILE: título reduzido de clamp(2rem, 9vw, 3.2rem) para clamp(1.5rem, 6vw, 2.2rem) */
   .case-titulo { 
     font-size: clamp(1.5rem, 6vw, 2.2rem); 
   }

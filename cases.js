@@ -27,3 +27,8 @@ function fecharCase(btn) {
 
   case_section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+function abrirWhats() {
+  const msg = 'Olá! Vim pelos cases de eventos da COFFEE US. Podemos dar andamento em um orçamento?';
+  window.open('https://wa.me/5551996106703?text=' + encodeURIComponent(msg), '_blank');
+}
