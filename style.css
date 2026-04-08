@@ -67,6 +67,10 @@ nav {
   align-items: center;
 }
 
+.nav-links li:not(.nav-contato):not(.nav-cases) {
+  display: none;
+}
+
 .nav-links li:not(.nav-contato) a {
   font-size: 0.75rem;
   letter-spacing: 0.15em;
@@ -77,6 +81,7 @@ nav {
   transition: opacity 0.3s;
 }
 .nav-links li:not(.nav-contato) a:hover { opacity: 1; }
+
 
 /* CONTATO */
 .nav-contato {
@@ -2279,16 +2284,16 @@ font-family: 'Montserrat', sans-serif;
   nav {
     padding: 0.9rem 1.2rem;
   }
-  .nav-links li:not(.nav-contato) {
-    display: none;
+ .nav-links li:not(.nav-contato):not(.nav-cases) {
+  display: none;
   }
   .nav-logo-img {
     height: 36px;
   }
-  .nav-cases {
+ .nav-cases {
   display: flex;
   align-items: center;
-}
+  }
 
 
   /* HERO */
