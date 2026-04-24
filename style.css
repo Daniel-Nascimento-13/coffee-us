@@ -1862,10 +1862,6 @@ font-family: 'Montserrat', sans-serif;
   z-index: 10; 
 }
 
-@media (-webkit-min-device-pixel-ratio: 2) {
-  .frase-us-over { -webkit-text-stroke: 1px var(--cream); }
-}
-
 .frase-dir { 
   display: flex; 
   flex-direction: column; 
@@ -1886,7 +1882,8 @@ font-family: 'Montserrat', sans-serif;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
-  .frase-outline { -webkit-text-stroke: 0.5px var(--dark); } /*QUE IMPULSIONA - QUE CONECTA*/
+  .frase-us-over  { -webkit-text-stroke: 1px var(--cream); }
+  .frase-outline  { -webkit-text-stroke: 0.5px var(--dark); }/*QUE IMPULSIONA - QUE CONECTA*/
 }
 
 
