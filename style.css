@@ -1408,8 +1408,8 @@ font-family: 'Montserrat', sans-serif;
 }
  
 .feedback-card {
-  background: rgba(255,248,240,0.04);
-  border: 1px solid rgba(230,204,177,0.1);
+  background: var(--cream);
+  border: 1px solid rgba(230,204,177,0.15);
   border-radius: 14px;
   padding: 28px 24px 22px;
   width: 100%;
@@ -1427,21 +1427,21 @@ font-family: 'Montserrat', sans-serif;
   color: var(--brown);
   line-height: 1;
   margin-bottom: 10px;
-  opacity: 0.5;
+  opacity: 1;
 }
  
 .fb-texto {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.68rem;
   line-height: 1.9;
-  color: rgba(230,204,177,0.75);
+  color: rgba(34,34,36,0.65);
   font-style: italic;
   margin-bottom: 18px;
 }
  
 .fb-divisor {
   height: 1px;
-  background: rgba(230,204,177,0.08);
+  background: rgba(34,34,36,0.1);
   margin-bottom: 16px;
 }
  
@@ -1455,15 +1455,15 @@ font-family: 'Montserrat', sans-serif;
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(172,143,112,0.12);
-  border: 1px solid rgba(172,143,112,0.25);
+  background: rgba(172,143,112,0.15);
+  border: 1px solid rgba(172,143,112,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.58rem;
   font-weight: 700;
-  color: var(--brown);
+  color: var(--dark);
   flex-shrink: 0;
   letter-spacing: 0.05em;
 }
@@ -1477,14 +1477,14 @@ font-family: 'Montserrat', sans-serif;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
-  color: var(--cream);
+  color: var(--dark);
   letter-spacing: 0.03em;
 }
  
 .fb-evento {
   font-size: 0.55rem;
   letter-spacing: 0.12em;
-  color: rgba(172,143,112,0.7);
+  color: rgba(34,34,36,0.5);
   margin-top: 3px;
   text-transform: uppercase;
 }
@@ -1497,7 +1497,7 @@ font-family: 'Montserrat', sans-serif;
  
 .fb-estrela {
   font-size: 0.7rem;
-  color: var(--brown);
+  color: var(--dark);
 }
  
 .feedbacks-seta {

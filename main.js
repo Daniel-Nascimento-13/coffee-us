@@ -161,7 +161,7 @@ if (timelineSection) observerTimeline.observe(timelineSection);
    ============================================ */
 const galeriaCards = document.querySelectorAll('.card-polaroid');
 const totalCards   = galeriaCards.length;
-const rotacoes     = [-6, 4, -3, 7, -5, 3];
+const rotacoes = [-6, 4, -3, 7, -5, 3, -4];
 let cardAtual      = 0;
 let animando       = false;
 
@@ -329,7 +329,7 @@ const totalFeedbacks = feedbackCards.length;
 let feedbackAtual    = 0;
 let feedbackAnimando = false;
 
-const feedbackRotacoes = [-4, 3, -2, 5, -3];
+const feedbackRotacoes = [-4, 3, -2, 5, -3, 4, -3, 2];
 
 feedbackCards.forEach((card, i) => {
   card.style.transition = 'none';
